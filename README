@@ -1,9 +1,10 @@
-The artefact PDF.jar implements a listing program whose main object is Listing. 
-The jar itself is huge because it embeds all the dependencies from the
-iText7 and scala libraries, as well as  Apache logging.
+The artefact ListingWithDependencies_jar/Listing.jar (size around 17mb) embeds all the dependencies from the
+iText7, scala, and Apache logging libraries that are used here in the Listing program. It is runnable without
+additional support. IT IS NOT BUILT AOUTOMATICALLY WITH THE PROJECT.
 
-A smaller artefact, Listing.jar which simply references my locally-installed
-versions of these jars, rather than copying them into PDF.jar,
-can be made by invoking makeListing.
+The file, out/Listing.jar (size around 18kb) simply references my locally-installed
+versions of the jars on which the listing program depends. It can be made, along with its (trivial) shell
+script, out/listing by invoking makeListing. The script and one of the jars can be placed anywhere on
+your path.
 
-BS. 2020/11/2
+BS. 2020/11/03

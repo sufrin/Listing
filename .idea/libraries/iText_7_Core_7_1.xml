@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="iText-7-Core-7.1">
+    <CLASSES>
+      <root url="file://$USER_HOME$/Installed/iText-7-Core-7.1.13" />
+      <root url="jar://$USER_HOME$/Installed/log4j/1.2.14/log4j-1.2.14.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$USER_HOME$/Installed/iText-7-Core-7.1.13" recursive="false" />
+  </library>
+</component>
