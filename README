@@ -1,0 +1,9 @@
+The artefact PDF.jar implements a listing program whose main object is Listing. 
+The jar itself is huge because it embeds all the dependencies from the
+iText7 and scala libraries, as well as  Apache logging.
+
+A smaller artefact, Listing.jar which simply references my locally-installed
+versions of these jars, rather than copying them into PDF.jar,
+can be made by invoking makeListing.
+
+BS. 2020/11/2
