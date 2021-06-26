@@ -105,8 +105,11 @@ object  Listing
       | options are:
       | -s=<float>  text font size (8.0)
       | -S=<float>  header font size (10.0)
-      | -p          portrait orientation (default is landscape)
-      | -c          compress, ie. don't start new sheet per file
+      | -p          portrait orientation (default is portrait)
+      | -l          landscape orientation (default is portrait)
+      | -c          compress, ie. don't start new sheet per file (default is compress)
+      | +c          expand, ie. don't compress -- start new sheet per file
+      | -e          expand; same as +c
       | -f=<font>   use <font> as text font
       | -enc=<enc>  set input encoding (default UTF8)
       | <path>.pdf  (once only) set output pdf file path (default is LISTING.pdf)
@@ -119,8 +122,8 @@ object  Listing
     val sources     = new scala.collection.mutable.Queue[String]
     var fontSize    = 8.0f
     var headSize    = 10.0f
-    var orientation = LANDSCAPE
-    var startOnOdd  = true
+    var orientation = PORTRAIT
+    var startOnOdd  = false
     var opt         = true
     var inputEnc    = "UTF8"
     var out         = false
@@ -132,6 +135,9 @@ object  Listing
       if (opt && arg.matches("-f=.+")) { courier=false; fontFile = arg.substring(3) } else
       if (opt && arg.matches("-[pP]")) orientation = PORTRAIT else
       if (opt && arg.matches("-[cC]")) startOnOdd = false else
+      if (opt && arg.matches("-[lL]")) orientation = LANDSCAPE else
+      if (opt && arg.matches("-[eE]")) startOnOdd = true else
+      if (opt && arg.matches("\\+[cC]")) startOnOdd = true else
       if (opt && arg.matches("-[oO]")) out=false else
       if (opt && arg.matches("--")) opt = false else
       if (opt && arg.matches("-enc=.+")) inputEnc=arg.substring(5) else
@@ -193,3 +199,4 @@ object  Listing
     doc.close()
   }
 }
+

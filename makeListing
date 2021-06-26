@@ -1,6 +1,6 @@
 # Construct jar, locate (shared) library jars, and construct a jar with references to the library jars
 
-MODULE=PDF
+MODULE=Listing
 COMMAND=listing
 MAIN=Listing
 LIBRARY="$HOME/Installed/iText* $HOME/Installed/org.slf4j $HOME/Installed/log4j $HOME/.ivy2/cache"
@@ -36,14 +36,19 @@ echo Manifest-Version: 1.0       >  $MAN
 echo Main-Class:       $MAIN     >> $MAN
 echo Class-Path:       "$CP"     >> $MAN
 
+echo made $MAN
+
 # 
 # Rebuild the jar if it's not an artefact
 # 
 jar cvmf $MAN out/$MAIN.jar -C out/production/$MODULE .
+
+echo made $MAIN.jar
 
 #
 # Build the shell command
 #
 echo 'java -jar ${0%/*}/'$MAIN.jar \"\$\@\" > out/$COMMAND
 chmod +x out/$COMMAND
+
 
