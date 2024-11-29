@@ -1,6 +1,6 @@
 The artefact ListingWithDependencies_jar/Listing.jar (size around 17mb) embeds all the dependencies from the
 iText7, scala, and Apache logging libraries that are used here in the Listing program. It is runnable without
-additional support. IT IS NOT BUILT AOUTOMATICALLY WITH THE PROJECT.
+additional support. IT IS NOT BUILT AUTOMATICALLY WITH THE PROJECT.
 
 The file, out/Listing.jar (size around 18kb) simply references my locally-installed
 versions of the jars on which the listing program depends. It can be made, along with its (trivial) shell

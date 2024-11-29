@@ -3,9 +3,9 @@
 MODULE=Listing
 COMMAND=listing
 MAIN=Listing
-LIBRARY="$HOME/Installed/iText* $HOME/Installed/org.slf4j $HOME/Installed/log4j $HOME/.ivy2/cache"
+LIBRARY="$HOME/Installed/iText* $HOME/Installed/org.slf4j $HOME/Installed/log4j $HOME/Installed/scala-library-2.13.15.jar"
 
-# .ivy2/cache is where the jars for the scala compiler and libraries live
+# $HOME/Installed is where the required libraries live [BS: Nov 2024]
 
 ################################### Generic ####################################
 
@@ -21,10 +21,15 @@ for LIB in $LIBRARY
     done
 
 CP=""
+CCP=""
 for JAR in $JARS 
     do
-      CP="$CP \n $JAR"     
+      CP="$CP \n $JAR"
+      CCP="$JAR:$CCP"
     done
+
+echo $CCP
+scalac -classpath $CCP src/*.scala
 
 #
 # Write the manifest
